@@ -1,0 +1,16 @@
+<h1>Create user</h1>
+<%= form_with model: @user do |form| %>
+  <div>
+    <%= form.label :tweetname %><br>
+    <%= form.text_field :tweetname %>
+  </div>
+
+  <div>
+    <%= form.label :img_url %><br>
+    <%= form.text_area :img_url %><br>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
