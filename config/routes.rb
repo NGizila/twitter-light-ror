@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  root "user#index"
+  resources :users
+  root "users#index"
 
-  get "/user", to: "user#index"
-  get "/user/new", to: "user#new"
+  get "/users", to: "user#index"
+  get "/users/new", to: "users#new"
 
   resources :user
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
