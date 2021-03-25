@@ -1,14 +1,16 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Tweetname:</strong>
-  <%= @user.tweetname %>
-</p>
-
-<p>
-  <strong>Img url:</strong>
-  <%= @user.img_url %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+<%= form_with(model: tweet) do |form| %>
+
+  <div class="field">
+
+  </div>
+
+  <div class="field">
+
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
