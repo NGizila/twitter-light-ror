@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get "/users", to: "user#index"
   get "/users/new", to: "users#new"
 
-  resources :user do
-	resources :tweet
+  resources :users do
+	resources :tweets
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
