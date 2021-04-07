@@ -2,17 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-$avatar_size: 10%
+.table {
+   width: 25%;
+}
 
-;avatar {
-    width: 256px;
-    height: 256px;
-    img {
-        width: 100%;
-        height: auto;
-    }
+.avatar {
+    width: 64px;
+    height: 64px;
+    border-radius:100%
 }
 
 .linkto {
     margin-top:5px;
+}
+
+.actionUserButton {
+    display: flex;
+}
+
+.actionButton {
+    margin-left: 2px;
+    margin-right: 2px;
 }
