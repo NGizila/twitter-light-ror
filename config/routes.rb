@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get "/users", to: "user#index"
   get "/users/new", to: "users#new"
+  get "/users/:id", to: "user#show"
 
   resources :users do
 	resources :tweets

@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_25_085902) do
+ActiveRecord::Schema.define(version: 2021_04_07_082019) do
 
   create_table "tweets", force: :cascade do |t|
-    t.string "content"
-    t.integer "users_id", null: false
+    t.text "content"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["users_id"], name: "index_tweets_on_users_id"
+    t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -27,5 +27,5 @@ ActiveRecord::Schema.define(version: 2021_03_25_085902) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "tweets", "users", column: "users_id"
+  add_foreign_key "tweets", "users"
 end
