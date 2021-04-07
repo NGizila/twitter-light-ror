@@ -1,6 +1,14 @@
-<h1>Editing User</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-3 mx-auto align-self-center">
+            <h1 class="display-4">Editing User</h1>
+            <%= render 'form', user: @user %>
+            <div class="linkto">
+                <%= link_to 'Show', @user %>
+                <%= link_to 'Back', users_path  %>
+            </div>
+            </div> 
+        </div>
+    </div>
+</div>        
 
-<%= render 'form', user: @user %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>

@@ -14,15 +14,15 @@
  *= require_self
  */
 
-@import "bulma";
-
-.nav-brand .title{
-    color: white;
+nav {
+    margin-left: 20px;
 }
 
-.image {
-    border-radius: 50%;
-    img {
-            border-radius: 50%;
-        }
+.navbarLink {
+    text-decoration: none;
 }
+
+.navbarLink:hover {
+    color: black;
+}
+
