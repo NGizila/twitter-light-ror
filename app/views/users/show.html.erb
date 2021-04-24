@@ -15,7 +15,7 @@
 <h2>Tweets</h2>
 <% @user.tweets.each do |tweet| %>
   <p>
-    <strong><%= @user.tweetname %>:</strong><strong><%= @user.created_at %>:</strong>
+    <strong><%= @user.tweetname %> </strong><strong><%= @user.created_at.strftime("%Y:%m:%d") %> :</strong>
     <%= tweet.content %>
   </p>
 <% end %>
