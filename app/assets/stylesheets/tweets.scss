@@ -1,3 +1,24 @@
 // Place all the styles related to the Tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.feed {
+    border: solid 1px;
+    border-color: gray;
+}
+
+.tweet-info {
+    display:flex;
+}
+
+.tweet-btn {
+    width: 25%;
+    border-radius:15px;
+    float: right;
+}
+
+.user-action-tweet {
+    margin-top: 15px;
+    margin-right: 5px;
+    float: right;
+}
