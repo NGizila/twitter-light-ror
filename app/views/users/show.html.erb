@@ -48,7 +48,11 @@
             <div>
               <strong><%= @user.created_at.strftime("%Y:%m:%d") %></strong> 
             </div>
-          </div>  
+            <% if tweet.id? %>
+            <div>
+              <%= button_to "delete", {:controller => "tweets", :action => 'destroy', :id => tweet.id, :user_id => @user.id }, :confirm => "Are you sure ?", :method => :delete %>
+            </div>
+            <% end %>
         </div>
       <% end %>
       </div>

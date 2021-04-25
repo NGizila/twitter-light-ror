@@ -1,10 +1,9 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: %i[ show edit update destroy ]
+  #before_action :set_tweet, only: %i[ show edit update destroy ]
 
   # GET /users/1/tweets or  /users/1/tweets.json
   def index
     @tweets = Tweet.all.order("created_at DESC")
-     @tweet = Tweet.new
     #Tweet.all
   end
 
@@ -58,14 +57,15 @@ class TweetsController < ApplicationController
 
   # DELETE /tweets/1 or /tweets/1.json
   def destroy
+    @user = User.find(params[:user_id])
+    @tweet = @user.tweets.find(params[:id])
     @tweet.destroy
-    respond_to do |format|
-      format.html { redirect_to tweets_url, notice: "Tweet was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to user_path(@user)
+    
   end
 
     # Only allow a list of trusted parameters through.
+  private
     def tweet_params
       params.require(:tweet).permit(:content)
     end
