@@ -9,6 +9,8 @@ class TweetsController < ApplicationController
 
   # GET /users/1/tweets/1 or /users/1/tweets/1.json
   def show
+    @user = User.find(params[:user_id])
+    @tweet = @user.tweets.find(params[:id])
   end
 
   # GET /users/1/tweets/new
@@ -17,43 +19,13 @@ class TweetsController < ApplicationController
     #@listing.tweets.create(params:[:tweet].merge(user:user))
   end
 
-  # GET /tweets/1/edit
-  def edit
-  end
-
   # POST /users/1/tweets or /users/1/tweets.json
   def create
     @user = User.find(params[:user_id])
     @tweet =  @user.tweets.create(tweet_params)
     redirect_to user_path(@user)
-
-    #respond_with @tweet
-    #Tweet.new(tweet_params)
-    #private
-
-    #respond_to do |format|
-    #  if @tweet.save
-    #    format.html { redirect_to @tweet, notice: "Tweet was successfully created." }
-    #    format.json { render :show, status: :created, location: @tweet }
-    #  else
-    #    format.html { render :new, status: :unprocessable_entity }
-    #    format.json { render json: @tweet.errors, status: :unprocessable_entity }
-    #  end
-    #end
   end
 
-  # PATCH/PUT /users/1/tweets/1 or /users/1/tweets/1.json
-  def update
-    respond_to do |format|
-      if @tweet.update(tweet_params)
-        format.html { redirect_to @tweet, notice: "Tweet was successfully updated." }
-        format.json { render :show, status: :ok, location: @tweet }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @tweet.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # DELETE /tweets/1 or /tweets/1.json
   def destroy

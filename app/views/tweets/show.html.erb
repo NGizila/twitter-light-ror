@@ -1,0 +1,31 @@
+
+<% @user.tweets.each do |tweet| %>
+    <% if tweet.id? %>
+    <div class="feed">
+      <div class="tweet">
+        <div class="row tweet-info">
+          <div class="col user-info-tweet">
+            <img src="<%= asset_path(@user.img_url) %>" class="avatar" />
+            <strong> <%= @user.tweetname %> </strong>
+          </div>
+          <div class="col">
+          </div>
+          <div class="col">
+            
+          </div>  
+        </div>  
+        <div>
+          <%= tweet.content %>
+        </div>
+        <div>
+          <strong><%= @user.created_at.strftime("%Y:%m:%d") %></strong> 
+        </div>
+        <div>
+          <%= button_to "delete", {:controller => "tweets", :action => 'destroy', :id => tweet.id, :user_id => @user.id }, :confirm => "Are you sure ?", :method => :delete %>
+        </div>
+        <div>
+          <%= button_to 'Back', user_path(@user) %>
+        </div>
+    </div>
+    <% end %>
+  <% end %>

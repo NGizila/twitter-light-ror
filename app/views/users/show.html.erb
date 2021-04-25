@@ -29,6 +29,7 @@
       <div class="feed">
       <h2>Your feed</h2>
       <% @user.tweets.each do |tweet| %>
+        <% if tweet.id? %>
         <div class="feed">
           <div class="tweet">
             <div class="row tweet-info">
@@ -48,12 +49,14 @@
             <div>
               <strong><%= @user.created_at.strftime("%Y:%m:%d") %></strong> 
             </div>
-            <% if tweet.id? %>
             <div>
               <%= button_to "delete", {:controller => "tweets", :action => 'destroy', :id => tweet.id, :user_id => @user.id }, :confirm => "Are you sure ?", :method => :delete %>
             </div>
-            <% end %>
+            <div>
+              <%= button_to "show", {:controller => "tweets", :action => 'show', :user_id => @user.id, :id => tweet.id}, :method => :show %>
+            </div>
         </div>
+        <% end %>
       <% end %>
       </div>
     </div>

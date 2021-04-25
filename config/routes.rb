@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   root "users#index"
 
   get "/users", to: "user#index"
-  get "/users/new", to: "users#new"
+  get "/users/new", to: "user#new"
   get "/users/:id", to: "user#show"
+  get "/users/:user_id/tweets/:id", to: "tweets#show" 
+  
 
   resources :users do
 	resources :tweets
