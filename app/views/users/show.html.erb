@@ -1,66 +1,83 @@
 <div class="container">
   <div class="row">
-    <div class="col-3">
+    <div class="col-xs-3">
+      <div class="panel panel-default">
+        <div class="panel-body text-center row">
+          <div class="col-sm-3">
+            <img src="<%= asset_path(@user.img_url) %>" height="50px" width="50px" class="avatar" />
+          </div>
+        
+          <div class="col-sm-9">
+            <h3><%= @user.tweetname %></h3>
+          </div>
+        </div>
+        <div class="panel-footer hiden-panel-body">
+          <div class="row">
+            <div class="col-sm-6" style="font-size:80%; opacity: 0.7;">Tweets<br>
+              <h6 style="font-size:200%; opacity: 0.5;"> 5</h6>
+            </div>
+            <div class="col-sm-6" style="font-size:80%; opacity: 0.7;">Followers<br>
+              <h6  style="font-size:200%; opacity: 0.5;"> 10</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+				<div class="panel-body">
+					<h4> Trends </h4>
+          <a href=""> #Trend #1</a><br>
+          <span style="opacity: 0.7;">21k tweets</span><br><br>
+          <a href=""> #Trend #2</a><br>
+          <span style="opacity: 0.7;">87k tweets</span><br>
+				</div>
+			</div>
     </div>
-    <div class="col-6">
-      <div>
-      <%= form_with model: [@user,@user.tweets.build] do |form| %>
-        <div class="field">
-          <div>
-            <h2>Home</h2>
-          </div>
-          <div>
-            <%= form.text_area :content, placeholder: "What's up ?", cols: 88, rows: 2 %>
-            <%= form.hidden_field :user_id, :value=>@user.id %>
-          </div>
-        </div>
-        <div class="actions">
-          <%= form.submit "Tweet", :class => "btn btn-primary tweet-btn"  %>
-        </div>
-      <% end %>
+    
+    <div class="col-xs-6">
+      <%= render "/components/post_tweet" %>
+        <div><h2>Your feed</h2></div>
+        <div class="mt-5">
+          <% @user.tweets.each do |tweet| %>
+            <% if tweet.id? %>
+              <div class="panel panel-default post-panel">
+                <div class="panel-body row">
+                  <div class="col-sm-1">
+                    <img src="<%= asset_path(@user.img_url) %>" class="avatar" />
+                  </div>
+                  
+                  <div class="col-sm-11">
+                  <p class="post-title"><strong> <%= @user.tweetname %> </strong> <strong><%= @user.created_at.strftime("%Y:%m:%d") %></strong></p>   
+                  <p class="post-content"><%= tweet.content %></p>
+                  </div>
+                  <div class="mt-3">
+                    <%= render '/components/reaction_bar' %>
+                  </div>
+                  <div>
+                    <%= button_to "delete", {:controller => "tweets", :action => 'destroy', :id => tweet.id, :user_id => @user.id }, :confirm => "Are you sure ?", :method => :delete %>
+                  </div>
+                  <div>
+                    <%= button_to "show", user_tweet_path(user_id: @user.id, id: tweet.id), :method => :show %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
         </div>
     </div>
 
+    <div class="col-xs-3">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<h4> Who to follow </h4>
+					<div class="col-sm-11  mt-3">
+            <% @user_list.each do |user| %>
+							<div class="row mb-2"><%= link_to user.tweetname,user %></div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+    </div>
+
   </div>
-  <div class="row">
-    <div class="col-3">
-    </div>
-    <div class="col-6">
-      <div class="feed">
-      <h2>Your feed</h2>
-      <% @user.tweets.each do |tweet| %>
-        <% if tweet.id? %>
-        <div class="feed">
-          <div class="tweet">
-            <div class="row tweet-info">
-              <div class="col user-info-tweet">
-                <img src="<%= asset_path(@user.img_url) %>" class="avatar" />
-                <strong> <%= @user.tweetname %> </strong>
-              </div>
-              <div class="col">
-              </div>
-              <div class="col">
-                
-              </div>  
-            </div>  
-            <div>
-              <%= tweet.content %>
-            </div>
-            <div>
-              <strong><%= @user.created_at.strftime("%Y:%m:%d") %></strong> 
-            </div>
-            <div>
-              <%= button_to "delete", {:controller => "tweets", :action => 'destroy', :id => tweet.id, :user_id => @user.id }, :confirm => "Are you sure ?", :method => :delete %>
-            </div>
-            <div>
-              <%= button_to "show", user_tweet_path(user_id: @user.id, id: tweet.id), :method => :show %>
-            </div>
-        </div>
-        <% end %>
-      <% end %>
-      </div>
-    </div>
-    <div class="col-3">
-    </div>
-  </div>
-<div>
+</div>
+

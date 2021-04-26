@@ -1,0 +1,16 @@
+<div>
+    <%= form_with model: [@user,@user.tweets.build] do |form| %>
+    <div class="field">
+        <div>
+            <h2>Home</h2>
+        </div>
+        <div>
+        <%= form.text_area :content, placeholder: "What's up ?", cols: 83, rows: 2 %>
+        <%= form.hidden_field :user_id, :value=>@user.id %>
+        </div>
+    </div>
+    <div class="actions">
+        <%= form.submit "Tweet", :class => "btn btn-primary tweet-btn"  %>
+    </div>
+    <% end %>
+</div>
