@@ -1,14 +1,18 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
   def index
     @users = User.all
+    @tweet = Tweet.all
   end
 
   # GET /users/1 or /users/1.json
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id]) #find_by_id holds nil if users id doesn't exist
+    redirect_to(root_url, :notice => 'Record not found') unless @user
+
+    #seeing only this user post on their profile
+    @tweet = Tweet.all.where("user_id = ?",User.find_by_id(params[:id]).id)
   end
 
   # GET /users/new
@@ -68,4 +72,7 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:tweetname, :img_url)
     end
+
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_url, :flash => { :error => "Record not found." }
 end

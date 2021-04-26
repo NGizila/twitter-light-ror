@@ -53,7 +53,7 @@
               <%= button_to "delete", {:controller => "tweets", :action => 'destroy', :id => tweet.id, :user_id => @user.id }, :confirm => "Are you sure ?", :method => :delete %>
             </div>
             <div>
-              <%= button_to "show", {:controller => "tweets", :action => 'show', :user_id => @user.id, :id => tweet.id}, :method => :show %>
+              <%= button_to "show", user_tweet_path(user_id: @user.id, id: tweet.id), :method => :show %>
             </div>
         </div>
         <% end %>
@@ -64,6 +64,3 @@
     </div>
   </div>
 <div>
-
-
-

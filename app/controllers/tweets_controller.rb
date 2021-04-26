@@ -13,6 +13,7 @@ class TweetsController < ApplicationController
     @tweet = @user.tweets.find(params[:id])
   end
 
+
   # GET /users/1/tweets/new
   def new
     @tweet = Tweet.new
@@ -39,6 +40,6 @@ class TweetsController < ApplicationController
     # Only allow a list of trusted parameters through.
   private
     def tweet_params
-      params.require(:tweet).permit(:content)
+      params.require(:tweet).permit(:user_id,:content)
     end
 end

@@ -1,8 +1,38 @@
-<div class="container">
-	<div class="row">
-        <div class="col-3 mx-auto align-self-center">
-			<h1>Users</h1>
-			<table class="table userTable">
+
+
+<div class="row">
+    <div class="col-xs-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p> stats </p>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p> trends </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <% for @all_users in @tweet %>
+            <div class="panel panel-default post-panel">
+                <div class="panel-body row">
+                    <div class="col-sm-1">
+                        <img src="<%= asset_path( User.find(@all_users.user_id).img_url) %>" class="avatar" />
+                    </div>
+                    <div class="col-sm-11">
+                        <p class="post-title"> <strong><%= User.find(@all_users.user_id).tweetname %></strong> </p>
+                        <p class="post-content"><%= @all_users.content %> </p>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div class="col-xs-3">
+		<div class="panel panel-default">
+            <div class="panel-body">
+                <p> Modify Users </p>
+				<table class="table userTable">
 				<% @users.each do |user| %>
 				<tr>
 					<td class="align-middle">
@@ -20,7 +50,13 @@
 				</tr>
 				<% end %>
 			</table>
-			<%= link_to 'New User', new_user_path, class: "btn btn-primary" %>
-		</div>
-	</div>	
+            </div>
+        </div>
+		<div class="panel panel-default">
+            <div class="panel-body">
+                <p> Add User </p>
+				<%= link_to 'New User', new_user_path, class: "btn btn-primary" %>
+            </div>
+        </div>
+    </div>
 </div>
