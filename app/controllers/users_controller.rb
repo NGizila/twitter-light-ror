@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
     #seeing only this user post on their profile
     @tweet = Tweet.all.where("user_id = ?",User.find_by_id(params[:id]).id)
-    @user_list = User.all
+    @user_list = User.all.where("id <> ?",@user.id)
   end
 
   # GET /users/new
