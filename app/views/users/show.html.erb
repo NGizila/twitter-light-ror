@@ -13,16 +13,17 @@
         </div>
         <div class="panel-footer hiden-panel-body">
           <div class="row">
-            <div class="col-sm-6" style="font-size:80%; opacity: 0.7;">Tweets<br>
-              <h6 style="font-size:200%; opacity: 0.5;"> 5</h6>
+            <div class="col-sm-4" style="font-size:80%; opacity: 0.7;">Tweets<br>
+              <h6 style="font-size:200%; opacity: 0.5;"><%= @tweet.count %></h6>
             </div>
-            <div class="col-sm-6" style="font-size:80%; opacity: 0.7;">Followers<br>
+            <div class="col-sm-4" style="font-size:80%; opacity: 0.7;">Followers<br>
               <h6  style="font-size:200%; opacity: 0.5;">
-                <% if @user.followers != nil %>
                    <%= @user.followers.count %> 
-                <% else %>
-                   0
-                <% end %>
+              </h6>
+            </div>
+            <div class="col-sm-4" style="font-size:80%; opacity: 0.7;">Following<br>
+              <h6  style="font-size:200%; opacity: 0.5;">
+                   <%= @user.following.count %> 
               </h6>
             </div>
           </div>
@@ -50,7 +51,6 @@
                   <div class="col-sm-1">
                     <img src="<%= asset_path(@user.img_url) %>" class="avatar" />
                   </div>
-                  
                   <div class="col-sm-11">
                   <p class="post-title"><strong> <%= @user.tweetname %> </strong> <strong><%= @user.created_at.strftime("%Y:%m:%d") %></strong></p>   
                   <p class="post-content"><%= tweet.content %></p>
@@ -66,6 +66,30 @@
                   </div>
                 </div>
               </div>
+            <% end %>
+          <% end %>
+          <% @user.following.each do |followed_user| %>
+            <% followed_user.tweets.each do |tweet| %>
+              <div class="panel panel-default post-panel">
+                  <div class="panel-body row">
+                    <div class="col-sm-1">
+                      <img src="<%= asset_path(@user.img_url) %>" class="avatar" />
+                    </div>
+                    <div class="col-sm-11">
+                    <p class="post-title"><strong> <%= followed_user.tweetname %> </strong> <strong><%= followed_user.created_at.strftime("%Y:%m:%d") %></strong></p>   
+                    <p class="post-content"><%= tweet.content %></p>
+                    </div>
+                    <div class="mt-3">
+                      <%= render '/components/reaction_bar' %>
+                    </div>
+                    <div>
+                      <%= button_to "delete", {:controller => "tweets", :action => 'destroy', :id => tweet.id, :user_id => followed_user.id }, :confirm => "Are you sure ?", :method => :delete %>
+                    </div>
+                    <div>
+                      <%= button_to "show", user_tweet_path(user_id: followed_user.id, id: tweet.id), :method => :show %>
+                    </div>
+                  </div>
+                </div>
             <% end %>
           <% end %>
         </div>
