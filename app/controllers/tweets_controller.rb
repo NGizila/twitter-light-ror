@@ -4,20 +4,18 @@ class TweetsController < ApplicationController
   # GET /users/1/tweets or  /users/1/tweets.json
   def index
     @tweets = Tweet.all.order("created_at DESC")
-    #Tweet.all
   end
 
   # GET /users/1/tweets/1 or /users/1/tweets/1.json
   def show
     @user = User.find(params[:user_id])
-    @tweet = @user.tweets.find(params[:id])
+    @tweet = Tweet.find(params[:id])
   end
 
 
   # GET /users/1/tweets/new
   def new
     @tweet = Tweet.new
-    #@listing.tweets.create(params:[:tweet].merge(user:user))
   end
 
   # POST /users/1/tweets or /users/1/tweets.json
