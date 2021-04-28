@@ -52,7 +52,7 @@
                     <img src="<%= asset_path(@user.img_url) %>" class="avatar" />
                   </div>
                   <div class="col-sm-11">
-                  <p class="post-title"><strong> <%= @user.tweetname %> </strong> <strong><%= @user.created_at.strftime("%Y:%m:%d") %></strong></p>   
+                  <p class="post-title"><strong> <%= @user.tweetname %> </strong> <strong><%=  time_ago_in_words(@user.created_at) %> ago</strong></p>   
                   <p class="post-content"><%= tweet.content %></p>
                   </div>
                   <div class="mt-3">
@@ -76,7 +76,7 @@
                       <img src="<%= asset_path(@user.img_url) %>" class="avatar" />
                     </div>
                     <div class="col-sm-11">
-                    <p class="post-title"><strong> <%= followed_user.tweetname %> </strong> <strong><%= followed_user.created_at.strftime("%Y:%m:%d") %></strong></p>   
+                    <p class="post-title"><strong> <%= followed_user.tweetname %> </strong> <strong><%= time_ago_in_words(@user.created_at) %> ago</strong></p>   
                     <p class="post-content"><%= tweet.content %></p>
                     </div>
                     <div class="mt-3">

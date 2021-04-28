@@ -12,7 +12,6 @@ class UsersController < ApplicationController
     redirect_to(root_url, :notice => 'Record not found') unless @user
 
     #seeing only this user post on their profile
-
     @tweet = Tweet.all.where("user_id = ?",@user.id)
     @user_list = User.all.where("id <> ?",@user.id)
   end
