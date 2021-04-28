@@ -6,15 +6,21 @@
             <img src="<%= asset_path(followed_user.img_url) %>" class="avatar" />
           </div>
           <div class="col-sm-11">
-          <p class="post-title"><strong> <%= followed_user.tweetname %> </strong> <strong><%= time_ago_in_words(followed_user.created_at) %> ago</strong></p>   
+          <p class="post-title">
+              <strong> <%= followed_user.tweetname %> </strong>  &nbsp<strong>|</strong>&nbsp 
+              <strong class="g-links" style="font-size: 14px;"><%= time_ago_in_words(followed_user.created_at) %> ago</strong>
+          </p>   
           <p class="post-content"><%= tweet.content %></p>
           </div>
           <div class="mt-3">
-            <%= render '/components/reaction_bar' %>
-          </div>
-          <div>
-            
-            <%= button_to "show", user_tweet_path(user_id: @user.id, id: tweet.id), :method => :get %>
+            <div class="col-sm-12">
+              <p class="post-links text-center">
+                  <span class="glyphicon glyphicon-comment g-links" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-retweet g-links" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-heart g-links" aria-hidden="true"></span>
+                  <%= link_to "View details", user_tweet_path(user_id: @user.id, id: tweet.id), :method => :get %>
+              </p>
+            </div>
           </div>
         </div>
       </div>

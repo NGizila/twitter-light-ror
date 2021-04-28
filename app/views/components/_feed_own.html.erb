@@ -5,18 +5,29 @@
           <div class="col-sm-1">
             <img src="<%= asset_path(@user.img_url) %>" class="avatar" />
           </div>
-          <div class="col-sm-11">
-          <p class="post-title"><strong> <%= @user.tweetname %> </strong> <strong><%=  time_ago_in_words(@user.created_at) %> ago</strong></p>   
-          <p class="post-content"><%= tweet.content %></p>
+          <div class="col-sm-10">
+            <p class="post-title">
+                <strong> <%= @user.tweetname %> </strong> &nbsp<strong>|</strong>&nbsp
+                <strong class="g-links" style="font-size: 14px;"><%=  time_ago_in_words(@user.created_at) %> ago</strong>
+            </p>
+            <div class="mt-3">
+              <p class="post-content"><%= tweet.content %></p>
+            </div>
+          </div>
+          <div class="col-sm-1">
+            <%= link_to "<i class='glyphicon glyphicon-trash g-links' aria-hidden='true' style='color:#da1111;'></i>".html_safe,
+            {:controller => "tweets", :action => 'destroy', :id => tweet.id, :user_id => @user.id }, 
+            :data => {:confirm => 'Are you sure?'}, :method => :delete %>
           </div>
           <div class="mt-3">
-            <%= render '/components/reaction_bar' %>
-          </div>
-          <div>
-            <%= button_to "delete", {:controller => "tweets", :action => 'destroy', :id => tweet.id, :user_id => @user.id }, :confirm => "Are you sure ?", :method => :delete %>
-          </div>
-          <div>
-            <%= button_to "show", user_tweet_path(user_id: @user.id, id: tweet.id), :method => :get %>
+            <div class="col-sm-12">
+              <p class="post-links text-center">
+                  <span class="glyphicon glyphicon-comment g-links" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-retweet g-links" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-heart g-links" aria-hidden="true"></span>
+                  <%= link_to "View details", user_tweet_path(user_id: @user.id, id: tweet.id), :method => :get %>
+              </p>
+            </div>
           </div>
         </div>
       </div>

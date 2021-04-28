@@ -14,12 +14,20 @@
     </div>
     
     <div class="col-xs-6">
-      <%= render "/components/post_tweet" %>
-        <div><h2>Your feed</h2></div>
+      <div class="row">
+        <%= render "/components/post_tweet" %>
+      </div>
+      <div class="row mt-5">
+        <div class="block">
+          <h2 style="display: inline;"><input type="button" id="your_feed" value="Your feed" style="background:none; border:none;"></h2>
+          <h2 style="display: inline;"> | </h2>
+          <h2 style="display: inline;"><input type="button" id="followers_feed" value="Followed feed" style="background:none; border:none;"></h2>
+        </div>
         <div class="mt-5">
           <%= render '/components/feed_own' %>
           <%= render '/components/feed_followed' %>
         </div>
+      </div>
     </div>
 
     <div class="col-xs-3">

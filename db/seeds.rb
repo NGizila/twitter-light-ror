@@ -11,7 +11,7 @@
 #           )   
 
 
-link_array = ['https://xboxplay.games/uploadStream/10884.jpg',
+link_array = [
                 'https://i.pinimg.com/originals/70/eb/59/70eb59d95d0a34060c6f89411e0f4b24.png',
                 'https://cdn.bfldr.com/SH6M70M3/as/qnfcfpm9w79b3mq8942k4tqz/geminipng_by_Among_Us_Avatar_Maker.jpg?quality=85',
                 'https://i.pinimg.com/originals/7a/b6/29/7ab629864f4c63ec9ea594b16ffe4008.jpg',

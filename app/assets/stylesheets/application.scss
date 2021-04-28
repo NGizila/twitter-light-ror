@@ -14,16 +14,31 @@
  *= require_self
  */
 
-nav {
-    margin-left: 20px;
+ .main{
+    background-color:#e8f3ff;
+ }
+ .main_navbar{
+     background-color:#1a6596;
+ }
+
+ .container{
+     margin-top: 3%;
+ }
+
+.img_logo{
+    margin-left: 2%;
+    margin-right: 1%;
+    width: 3%;
 }
 
 .navbarLink {
     text-decoration: none;
+    font-size: 130%;
+    color:azure;
 }
 
 .navbarLink:hover {
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .post-panel{
