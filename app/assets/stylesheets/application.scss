@@ -14,6 +14,10 @@
  *= require_self
  */
 
+#followed_feed {
+    display: none;
+}
+
  .main{
     background-color:#e8f3ff;
  }
@@ -44,6 +48,7 @@
 .post-panel{
     margin-top: -21px;
 }
+
 
 .post-content, .post-title{
     text-align: left;
