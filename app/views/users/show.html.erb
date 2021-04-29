@@ -7,10 +7,10 @@
       <div class="panel panel-default">
 				<div class="panel-body">
 					<h4> Trends </h4>
-          <a href=""> #Trend #1</a><br>
-          <span style="opacity: 0.7;">21k tweets</span><br><br>
-          <a href=""> #Trend #2</a><br>
-          <span style="opacity: 0.7;">87k tweets</span><br>
+          <% @tag.each do |tag,popularity| %>
+            <a href=""> <%= tag %> </a><br>
+            <span style="opacity: 0.7;"><%= popularity %> tweets</span><br><br>
+          <% end %>
 				</div>
 			</div>
     </div>

@@ -30,7 +30,16 @@ class TweetsController < ApplicationController
   def destroy
     @user = User.find(params[:user_id])
     @tweet = @user.tweets.find(params[:id])
+
+    @tag = @tweet.tags.ids
+    if @tag.any?
+      @tag.each do |this_tag|
+        @tag = Tag.find_by(id: this_tag)
+        @tag.destroy
+      end
+    end
     @tweet.destroy
+    
     redirect_to user_path(@user)
     
   end

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_id(params[:id]) #find_by_id holds nil if users id doesn't exist
     redirect_to(root_url, :notice => 'Record not found') unless @user
-
+    @tag = Tag.all.group("name").count
     #seeing only this user post on their profile
     @tweet = Tweet.all.where("user_id = ?",@user.id)
     @user_list = User.all.where("id <> ?",@user.id)
