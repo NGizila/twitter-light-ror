@@ -20,9 +20,6 @@
 							<p class="post-title"> <strong><%= User.find(@all_users.user_id).tweetname %></strong> </p>
 							<p class="post-content"><%= @all_users.content %> </p>
 						</div>
-						<div class="mt-3">
-							<%= render '/components/reaction_bar' %>
-						</div>
 					</div>
 				</div>
 			<% end %>

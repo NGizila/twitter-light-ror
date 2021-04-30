@@ -22,9 +22,6 @@
           <div class="mt-3">
             <div class="col-sm-12">
               <p class="post-links text-center">
-                  <span class="glyphicon glyphicon-comment g-links" aria-hidden="true"></span>
-                  <span class="glyphicon glyphicon-retweet g-links" aria-hidden="true"></span>
-                  <span class="glyphicon glyphicon-heart g-links" aria-hidden="true"></span>
                   <%= link_to "View details", user_tweet_path(user_id: @user.id, id: tweet.id), :method => :get %>
               </p>
             </div>
