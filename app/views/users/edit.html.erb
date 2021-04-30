@@ -3,11 +3,10 @@
         <h1 class="display-4">Editing User</h1>
         <div class="panel panel-default">
             <div class="panel-body">
+                <%= link_to 'Show', @user, class: "btn btn-danger",style: 'float: right;' %>
                 <%= render 'form', user: @user %>
             </div>
-            <div class="col-xs-9 text-center center-block">
-                    <%= link_to 'Show', @user, class: "btn btn-warning" %>
-            </div>
+            
         </div>
     </div>
 </div>        

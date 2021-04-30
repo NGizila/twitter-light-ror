@@ -3,7 +3,7 @@ require "test_helper"
 class TweetTest < ActiveSupport::TestCase
   def setup
     @user = users(:testuser)
-    @tweet = @user.tweets.build(content: "test content lorem ipsum")
+    @tweet = @user.tweets.build(content: "test content lorem ipsum #taaaag")
   end
 
   test "should be valid" do
@@ -28,4 +28,14 @@ class TweetTest < ActiveSupport::TestCase
   test "tweets should be ordered by their recency" do
     assert_equal Tweet.first, tweets(:most_recent)
   end
+
+  test "tag should be extracted from a tweet" do 
+    @hashtags = @tweet.content.scan(/#\w+/)
+    @hashtags.map do |hashtag|
+      @t = Tag.create(name: hashtag.downcase.delete('#'))
+      @tweet.tags << @t
+    end
+    assert @tweet.tags.present?
+  end
+
 end

@@ -17,7 +17,7 @@ class Tweet < ApplicationRecord
     hashtags = self.content.scan(/#\w+/)
     #fetching all hashtags with regex, all hashtags are unique
     hashtags.map do |hashtag|
-      #avoiding duplications and keeping all type of text(reason why downcase)
+      #same type of tags should have same size
       tag = Tag.create(name: hashtag.downcase.delete('#'))
       tweet.tags << tag 
     end

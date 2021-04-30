@@ -12,13 +12,13 @@
             </ul>
           </div>
         <% end %>
-        <div class="mb-3 center-block">
-          <label for="name"><%= form.label "Twitter name" %> </label>
-          <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+        <div class="mb-4 mt-5 center-block">
+          <label for="user_tweetname"><%= form.label "Twitter name",style: 'font: 1.4em "Fira Sans", sans-serif;'%> </label>
+          <%= form.text_field :tweetname, style: 'float: right; width: 65%; display: block',class: "form-control" %>
         </div>
-        <div class="mb-3 center-block">
-          <label for="img_url"><%= form.label "Image URL" %></label>
-          <input type="text" class="form-control" id="img_url" placeholder="Enter image url" name="img_url">
+        <div class="mb-5 center-block">
+          <label for="user_img_url"><%= form.label "Image URL", style:' font: 1.4em "Fira Sans", sans-serif;' %></label>
+          <%= form.text_field :img_url, style: 'float: right; width: 65%; display: block;%',class: "form-control"%>
         </div>
         <div class="mb-3 center-bloc">
             <div class="text-center">
@@ -27,5 +27,6 @@
             </div> 
          </div>
     </div>
+  </div>
 <% end %>
      

@@ -23,7 +23,7 @@ link_array = [
 ]
 
 
-13.times do |n|
+9.times do |n|
     tweetname = Faker::Name.name
     img_url = link_array.sample
     User.create!(tweetname: tweetname,
@@ -31,11 +31,37 @@ link_array = [
     )
 end
 
+tag_users = User.order(:created_at).take(1)
+1.times do
+    tag_users.each { |user| user.tweets.create!(content: "#orange or not an orange")}
+end
+
+tag_users = User.order(:created_at).take(3)
+3.times do
+    tag_users.each { |user| user.tweets.create!(content: "Today is #tacos day")}
+end
+
+tag_users = User.order(:created_at).take(3)
+2.times do
+    tag_users.each { |user| user.tweets.create!(content: "#chocolatine ou #pain_au_chocolat?")}
+end
+
+tag_users = User.order(:created_at).take(2)
+6.times do
+    tag_users.each { |user| user.tweets.create!(content: "#may_the_force_be_with_you")}
+end
+
+tag_users = User.order(:created_at).take(1)
+1.times do
+    tag_users.each { |user| user.tweets.create!(content: "#apple #apple #apple")}
+end
+
 content_array = [Faker::Quote.yoda, Faker::Quote.famous_last_words, Faker::Quote.fortune_cookie,Faker::Quotes::Shakespeare.hamlet]
 users = User.order(:created_at).take(6)
 10.times do
     users.each { |user| user.tweets.create!(content: content_array.sample)}
 end
+
 
 users = User.all
 user = users.first

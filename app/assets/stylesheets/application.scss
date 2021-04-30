@@ -13,7 +13,10 @@
  *= require_tree .
  *= require_self
  */
+#other_feed:hover, #your_feed:hover{
+    color:rgb(10, 8, 121);
 
+}
 #followed_feed {
     display: none;
 }
