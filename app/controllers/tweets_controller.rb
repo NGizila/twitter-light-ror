@@ -1,5 +1,4 @@
 class TweetsController < ApplicationController
-  #before_action :set_tweet, only: %i[ show edit update destroy ]
 
   # GET /users/1/tweets or  /users/1/tweets.json
   def index
