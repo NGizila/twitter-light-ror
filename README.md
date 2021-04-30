@@ -1,9 +1,17 @@
 # Rapport de projet Ruby on Rails : Twitter-Light
 
+## Procédure d'installation
 ### Requirement
 * Ruby version : 3.0.0
 * Sqlite version : 3.34.1
 * Ruby on Rails : 6.1.3.1
+
+### Installation 
+* Dézippez le ficher ``Faut qu'on trouve un nom de fichier``
+* Rendez vous dans le dossier ``Faut qu'on trouve un nom de fichier``
+* Tapez la commande ``bundle install`` pour installer le projet et les gems
+* Puis, tapez ``rails db:setup`` afin d'initialiser la base de données ainsi que les données contenues dans ``seeds.rb``
+* Et enfin utilisez la commande ``rails server`` et le projet tourne !
 
 ### Organisation du binôme
 
