@@ -40,4 +40,4 @@ Amélioration visuelle, c'est à dire rendre graphiquement meilleur le site
 
 Jérémy : Personnellement, j'ai été complètement largué par le framework, comme dit plus haut, il n'a pas été facile à appréhender, et on se rend compte qu'il faut vachement creuser pour trouver une méthode miracle fournie par Ruby pour faire quelque chose. Peut-être que le fait que Ruby simplifie beaucoup de chose pour moi le rend plus compliqué....
 
-Natalia : 
+Natalia : C'est un peu difficile de commencer car la syntaxe utilisée est différente. Sinon je trouve ce framework intéressant.

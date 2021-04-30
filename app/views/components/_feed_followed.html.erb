@@ -8,7 +8,7 @@
           <div class="col-sm-11">
           <p class="post-title">
               <strong> <%= followed_user.tweetname %> </strong>  &nbsp<strong>|</strong>&nbsp 
-              <strong class="g-links" style="font-size: 14px;"><%= time_ago_in_words(followed_user.created_at) %> ago</strong>
+              <strong class="g-links" style="font-size: 14px;"><%= time_ago_in_words(tweet.created_at) %> ago</strong>
           </p>   
           <p class="post-content"><%= tweet.content %></p>
           </div>
