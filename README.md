@@ -11,7 +11,9 @@
 * Rendez vous dans le dossier ``Faut qu'on trouve un nom de fichier``
 * Tapez la commande ``bundle install`` pour installer le projet et les gems
 * Puis, tapez ``rails db:setup`` afin d'initialiser la base de données ainsi que les données contenues dans ``seeds.rb``
-* Et enfin utilisez la commande ``rails server`` et le projet tourne !
+* Et enfin utilisez la commande ``rails server`` et le projet tourne !  
+
+## Rapport
 
 ### Organisation du binôme
 
@@ -22,6 +24,7 @@
 * CRUD pour un utilisateur
 * Création/Suppression d'un tweet
 * Suivre un utilisateur
+* Hashtag
 
 ### Difficultés rencontrées
 
