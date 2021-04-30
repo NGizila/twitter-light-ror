@@ -1,13 +1,13 @@
 <div class="container">
-    <div class="row">
-        <div class="col-3 mx-auto align-self-center">
-            <h1 class="display-4">Editing User</h1>
-            <%= render 'form', user: @user %>
-            <div class="linkto">
-                <%= link_to 'Show', @user %>
-                <%= link_to 'Back', users_path  %>
+    <div class="col-xs-9">
+        <h1 class="display-4">Editing User</h1>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <%= render 'form', user: @user %>
             </div>
-            </div> 
+            <div class="col-xs-9 text-center center-block">
+                    <%= link_to 'Show', @user, class: "btn btn-warning" %>
+            </div>
         </div>
     </div>
 </div>        

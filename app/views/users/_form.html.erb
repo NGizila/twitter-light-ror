@@ -1,34 +1,31 @@
 <%= form_with(model: user, class: "col-3") do |form| %>
-<div class="container text-center">
-<% if user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  <div class="container">
+    <div class="col-xs-6 center-block ">
+        <% if user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-    <ul>
-      <% user.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
-  </div>
+            <ul>
+              <% user.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="mb-3 center-block">
+          <label for="name"><%= form.label "Twitter name" %> </label>
+          <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+        </div>
+        <div class="mb-3 center-block">
+          <label for="pwd"><%= form.label "Image URL" %></label>
+          <input type="text" class="form-control" id="img_url" placeholder="Enter image url" name="img_url">
+        </div>
+        <div class="mb-3 center-bloc">
+            <div class="text-center">
+              <%= form.submit "Create User", class: "btn btn-primary" %>
+              <%= link_to 'Back', users_path, class: "btn btn-warning" %>
+            </div> 
+         </div>
+    </div>
 <% end %>
-<table class="table">
-  <tr>
-<div class="form-group">
-  <td class="lead"> <%= form.label "Twitter name" %> </td>
-  <td> <%= form.text_field :tweetname %> </td>
-</div>
-  </tr>
-  <tr>
-<div class="form-group">
-  <td class="lead"> <%= form.label "Image URL" %> </td>
-  <td> <%= form.text_field :img_url %> </td>
-</div>
-  </tr>
-</table>
-
-<div class="form-group">
-  <%= form.submit %>
-</div>
-<% end %>
-</div>
-
+     
