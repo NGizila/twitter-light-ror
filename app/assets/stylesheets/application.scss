@@ -17,7 +17,13 @@
 #followed_feed {
     display: none;
 }
-
+textarea
+{
+    overflow: hidden;
+    font-family:sans-serif;
+    resize : both;
+    max-height : 150px;
+}
  .main{
     background-color:#e8f3ff;
  }
