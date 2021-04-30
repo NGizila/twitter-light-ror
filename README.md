@@ -1,24 +1,32 @@
-# README
+# Rapport de projet Ruby on Rails : Twitter-Light
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Requirement
+* Ruby version : 3.0.0
+* Sqlite version : 3.34.1
+* Ruby on Rails : 6.1.3.1
 
-Things you may want to cover:
+### Organisation du binôme
 
-* Ruby version
+* Pair programming
 
-* System dependencies
+### Fonctionnel implémenté
 
-* Configuration
+* CRUD pour un utilisateur
+* Création/Suppression d'un tweet
+* Suivre un utilisateur
 
-* Database creation
+### Difficultés rencontrées
 
-* Database initialization
+Rails n'est pas facile à prendre main, et il existe pas mal de subtilité qui ne sont pas évidentes à comprendre.
 
-* How to run the test suite
+### Amélioration possible
 
-* Services (job queues, cache servers, search engines, etc.)
+Amélioration du code, mettre ce qui n'a pas sa place dans le ``controller`` dans les ``modèles``
 
-* Deployment instructions
+Amélioration visuelle, c'est à dire rendre graphiquement meilleur le site
 
-* ...
+### Impression sur Ruby On Rails
+
+Jérémy : Personnellement, j'ai été complètement largué par le framework, comme dit plus haut, il n'a pas été facile à appréhender, et on se rend compte qu'il faut vachement creuser pour trouver une méthode miracle fournie par Ruby pour faire quelque chose. Peut-être que le fait que Ruby simplifie beaucoup de chose pour moi le rend plus compliqué....
+
+Natalia : 
