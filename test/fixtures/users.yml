@@ -1,9 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  tweetname: MyString
-  img_url: MyString
+testuser:
+  tweetname: Stark
+  img_url: img_stark.com
 
-two:
-  tweetname: MyString
-  img_url: MyString
+imposter:
+  tweetname: not_imposter
+  img_url: imposter.png
+
+bob:
+  tweetname: bob
+  img_url: bob.jpg
+
+sparrow:
+  tweetname: pirate
+  img_url: pirate.png

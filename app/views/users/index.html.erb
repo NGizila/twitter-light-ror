@@ -1,0 +1,53 @@
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<div class="panel panel-default">
+				<div class="panel-body text-center">
+					<h4> Add User </h4>
+					<%= link_to 'New User', new_user_path, class: "btn btn-primary" %>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-6">
+			<% for @all_users in @tweet %>
+				<div class="panel panel-default post-panel">
+					<div class="panel-body row">
+						<div class="col-sm-1">
+							<img src="<%= asset_path( User.find(@all_users.user_id).img_url) %>" class="avatar" />
+						</div>
+						<div class="col-sm-11  mt-3">
+							<p class="post-title"> <strong><%= User.find(@all_users.user_id).tweetname %></strong> </p>
+							<p class="post-content"><%= @all_users.content %> </p>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<div class="col-xs-3">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<h4> Manage Users </h4>
+					<table class="table userTable">
+					<% @users.each do |user| %>
+					<tr>
+						<td class="align-middle">
+						<div>
+							<img src="<%= asset_path(user.img_url) %>" class="avatar"  />
+							<%= link_to user.tweetname, user %>
+						</div>  
+						</td>
+						<td class="align-middle">
+							<div class="actionUserButton">
+							<%= link_to 'Edit', edit_user_path(user), class: "btn btn-primary actionButton" %>
+							<%= button_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger actionButton" %>
+							</div>  
+						</td>
+					</tr>
+					<% end %>
+				</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

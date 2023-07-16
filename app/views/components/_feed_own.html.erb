@@ -1,0 +1,32 @@
+<% @user.tweets.each do |tweet| %>
+    <% if tweet.id? %>
+      <div class="panel panel-default post-panel">
+        <div class="panel-body row">
+          <div class="col-sm-1">
+            <img src="<%= asset_path(@user.img_url) %>" class="avatar" />
+          </div>
+          <div class="col-sm-10">
+            <p class="post-title">
+                <strong> <%= @user.tweetname %> </strong> &nbsp<strong>|</strong>&nbsp
+                <strong class="g-links" style="font-size: 14px;"><%=  time_ago_in_words(tweet.created_at) %> ago</strong>
+            </p>
+            <div class="mt-3">
+              <p class="post-content"><%= tweet.content %></p>
+            </div>
+          </div>
+          <div class="col-sm-1">
+            <%= link_to "<i class='glyphicon glyphicon-trash g-links' aria-hidden='true' style='color:#da1111;'></i>".html_safe,
+            {:controller => "tweets", :action => 'destroy', :id => tweet.id, :user_id => @user.id }, 
+            :data => {:confirm => 'Are you sure?'}, :method => :delete %>
+          </div>
+          <div class="mt-3">
+            <div class="col-sm-12">
+              <p class="post-links text-center">
+                  <%= link_to "View details", user_tweet_path(user_id: @user.id, id: tweet.id), :method => :get %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>

@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+    <%= render '/components/profile_info' %>
+      <div class="panel panel-default">
+				<div class="panel-body">
+					<h4> Trends </h4>
+          <% @sorted_tag.each do |tag,popularity| %>
+            <a href=""> <%= tag %> </a><br>
+            <span style="opacity: 0.7;"><%= popularity %> tweets</span><br><br>
+          <% end %>
+				</div>
+			</div>
+    </div>
+    
+    <div class="col-xs-6">
+      <div class="row">
+        <%= render "/components/post_tweet" %>
+      </div>
+      <div class="row mt-5">
+        <div class="block">
+          <h2 style="display: inline;"><input type="button" id="your_feed" value="Your feed" onclick="showYourFeed()" style="background:none; border:none;"/></h2>
+          <h2 style="display: inline;"> | </h2>
+          <h2 style="display: inline;"><input type="button" id="other_feed" value="Followed feed" onclick="showFollowedFeed()" style="background:none; border:none;"/></h2>
+        </div>
+        <div class="mt-5">
+          <div id="own_feed">
+            <%= render '/components/feed_own' %>
+          </div>
+          <div id="followed_feed">
+            <%= render '/components/feed_followed' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-3">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<h4> Who to follow </h4>
+					<div class="col-sm-11  mt-3">
+            <% @user_list.each do |user| %>
+              <%= render '/components/follow_button', :user=> user, :current_user=> @user %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+    </div>
+  </div>
+</div>
+<script>
+function showFollowedFeed() {
+    let followed_feed = document.getElementById("followed_feed");
+    followed_feed.style.display = followed_feed.style.display === 'block' ? 'none' : 'block';
+  } 
+  
+  function showYourFeed() {
+    let own_feed = document.getElementById("own_feed");
+    own_feed.style.display = own_feed.style.display === 'none' ? '' : 'none';
+  } 
+</script>

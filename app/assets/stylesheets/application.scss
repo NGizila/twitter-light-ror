@@ -1,0 +1,71 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+#other_feed:hover, #your_feed:hover{
+    color:rgb(10, 8, 121);
+
+}
+#followed_feed {
+    display: none;
+}
+textarea
+{
+    overflow: hidden;
+    font-family:sans-serif;
+    resize : both;
+    max-height : 150px;
+}
+ .main{
+    background-color:#e8f3ff;
+ }
+ .main_navbar{
+     background-color:#1a6596;
+ }
+
+ .container{
+     margin-top: 3%;
+ }
+
+.img_logo{
+    margin-left: 2%;
+    margin-right: 1%;
+    width: 3%;
+}
+
+.navbarLink {
+    text-decoration: none;
+    font-size: 130%;
+    color:azure;
+}
+
+.navbarLink:hover {
+    color: rgb(255, 255, 255);
+}
+
+.post-panel{
+    margin-top: -21px;
+}
+
+
+.post-content, .post-title{
+    text-align: left;
+    margin-left: 2vw;
+}
+
+.g-links {
+    margin-right:75px;
+    opacity: 0.5;
+    font-size: 120%;
+}

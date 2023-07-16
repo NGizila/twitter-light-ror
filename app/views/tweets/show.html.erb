@@ -1,0 +1,58 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+      
+      <div class="panel panel-default">
+          <div class="panel-body text-center row">
+              <div class="col-sm-3">
+              <img src="<%= asset_path(@user.img_url) %>" height="50px" width="50px" class="avatar" />
+              </div>
+              <div class="col-sm-9">
+                <h3><%= User.find(@tweet.user_id).tweetname %></h3>
+              </div>
+          </div>
+      </div>
+    </div>
+    
+    <div class="col-xs-6">
+      <div class="panel panel-default post-panel">
+        <div class="panel-body row">
+          <div class="post-links">
+            <%= link_to "<i class='glyphicon glyphicon-arrow-left' aria-hidden='true'></i><strong> Tweets</strong>".html_safe, 
+            user_path(@user), :method => :get %>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default post-panel">
+        <div class="panel-body row">
+          <div class="col-sm-1">
+              <img src="<%= asset_path(@user.img_url) %>" class="avatar" />
+          </div>
+          <div class="col-sm-11">
+            <p class="post-title"><strong> <%= @user.tweetname %> </strong>  
+              <p class="post-content"><%= @tweet.content %></p>
+          </div>  
+          
+          <div class="mt-3">
+            <div class="col-sm-12 text-center">
+              <hr>
+                <div class="post-links">
+                    <strong class="g-links" style="font-size: 14px;"><%= time_ago_in_words(@user.created_at) %> ago</strong>
+                    <% if @tweet.user_id == @user.id %>
+                      <%= link_to "<i class='glyphicon glyphicon-trash' aria-hidden='true' style='color:#da1111;'></i>".html_safe, 
+                          {:controller => "tweets", :action => 'destroy', :id => @tweet.id, :user_id => @user.id },
+                            :confirm => "Are you sure ?", :method => :delete %>
+                    <%end%>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-3">
+    </div>
+
+  </div>
+</div>
